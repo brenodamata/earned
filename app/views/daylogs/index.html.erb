@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Daylogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date code</th>
+      <th>Incentive total</th>
+      <th>Strikes</th>
+      <th>Win</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daylogs.each do |daylog| %>
+      <tr>
+        <td><%= daylog.date_code %></td>
+        <td><%= daylog.incentive_total %></td>
+        <td><%= daylog.strikes %></td>
+        <td><%= daylog.win %></td>
+        <td><%= link_to 'Show', daylog %></td>
+        <td><%= link_to 'Edit', edit_daylog_path(daylog) %></td>
+        <td><%= link_to 'Destroy', daylog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Daylog', new_daylog_path %>

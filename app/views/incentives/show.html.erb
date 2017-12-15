@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Metric:</strong>
+  <%= @incentive.metric %>
+</p>
+
+<p>
+  <strong>Merit:</strong>
+  <%= @incentive.merit %>
+</p>
+
+<p>
+  <strong>Threshold:</strong>
+  <%= @incentive.threshold %>
+</p>
+
+<p>
+  <strong>Equation:</strong>
+  <%= @incentive.equation %>
+</p>
+
+<%= link_to 'Edit', edit_incentive_path(@incentive) %> |
+<%= link_to 'Back', incentives_path %>

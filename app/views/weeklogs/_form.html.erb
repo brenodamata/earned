@@ -1,0 +1,47 @@
+<%= form_with(model: weeklog, local: true) do |form| %>
+  <% if weeklog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(weeklog.errors.count, "error") %> prohibited this weeklog from being saved:</h2>
+
+      <ul>
+      <% weeklog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start_date_code %>
+    <%= form.number_field :start_date_code, id: :weeklog_start_date_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date_code %>
+    <%= form.number_field :end_date_code, id: :weeklog_end_date_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weekly_incentive %>
+    <%= form.number_field :weekly_incentive, id: :weeklog_weekly_incentive %>
+  </div>
+
+  <div class="field">
+    <%= form.label :incentive_total %>
+    <%= form.number_field :incentive_total, id: :weeklog_incentive_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wins %>
+    <%= form.number_field :wins, id: :weeklog_wins %>
+  </div>
+
+  <div class="field">
+    <%= form.label :losses %>
+    <%= form.number_field :losses, id: :weeklog_losses %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

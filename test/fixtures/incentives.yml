@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  metric: one
+  merit: false
+  threshold: 1
+  equation: 1
+
+two:
+  metric: two
+  merit: false
+  threshold: 1
+  equation: 1

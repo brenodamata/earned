@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date code:</strong>
+  <%= @weeklog.start_date_code %>
+</p>
+
+<p>
+  <strong>End date code:</strong>
+  <%= @weeklog.end_date_code %>
+</p>
+
+<p>
+  <strong>Weekly incentive:</strong>
+  <%= @weeklog.weekly_incentive %>
+</p>
+
+<p>
+  <strong>Incentive total:</strong>
+  <%= @weeklog.incentive_total %>
+</p>
+
+<p>
+  <strong>Wins:</strong>
+  <%= @weeklog.wins %>
+</p>
+
+<p>
+  <strong>Losses:</strong>
+  <%= @weeklog.losses %>
+</p>
+
+<%= link_to 'Edit', edit_weeklog_path(@weeklog) %> |
+<%= link_to 'Back', weeklogs_path %>

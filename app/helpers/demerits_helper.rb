@@ -1,0 +1,2 @@
+module DemeritsHelper
+end

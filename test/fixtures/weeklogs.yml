@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date_code: 1
+  end_date_code: 1
+  weekly_incentive: 1
+  incentive_total: 1
+  wins: 1
+  losses: 1
+
+two:
+  start_date_code: 1
+  end_date_code: 1
+  weekly_incentive: 1
+  incentive_total: 1
+  wins: 1
+  losses: 1

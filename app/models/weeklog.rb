@@ -1,0 +1,2 @@
+class Weeklog < ApplicationRecord
+end

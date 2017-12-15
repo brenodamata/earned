@@ -1,0 +1,22 @@
+<%= form_with(model: demerit, local: true) do |form| %>
+  <% if demerit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(demerit.errors.count, "error") %> prohibited this demerit from being saved:</h2>
+
+      <ul>
+      <% demerit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :demerit_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

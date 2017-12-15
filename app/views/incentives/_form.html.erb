@@ -1,0 +1,37 @@
+<%= form_with(model: incentive, local: true) do |form| %>
+  <% if incentive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(incentive.errors.count, "error") %> prohibited this incentive from being saved:</h2>
+
+      <ul>
+      <% incentive.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :metric_id %>
+    <%= form.text_field :metric_id, id: :incentive_metric_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :merit %>
+    <%= form.check_box :merit, id: :incentive_merit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :threshold %>
+    <%= form.number_field :threshold, id: :incentive_threshold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :equation %>
+    <%= form.number_field :equation, id: :incentive_equation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

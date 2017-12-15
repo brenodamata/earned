@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date code:</strong>
+  <%= @daylog.date_code %>
+</p>
+
+<p>
+  <strong>Incentive total:</strong>
+  <%= @daylog.incentive_total %>
+</p>
+
+<p>
+  <strong>Strikes:</strong>
+  <%= @daylog.strikes %>
+</p>
+
+<p>
+  <strong>Win:</strong>
+  <%= @daylog.win %>
+</p>
+
+<%= link_to 'Edit', edit_daylog_path(@daylog) %> |
+<%= link_to 'Back', daylogs_path %>

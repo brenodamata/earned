@@ -1,0 +1,2 @@
+module DaylogsHelper
+end

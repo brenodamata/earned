@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Demerits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @demerits.each do |demerit| %>
+      <tr>
+        <td><%= demerit.name %></td>
+        <td><%= link_to 'Show', demerit %></td>
+        <td><%= link_to 'Edit', edit_demerit_path(demerit) %></td>
+        <td><%= link_to 'Destroy', demerit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Demerit', new_demerit_path %>
