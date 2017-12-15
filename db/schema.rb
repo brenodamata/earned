@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215022349) do
+ActiveRecord::Schema.define(version: 20171215035458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20171215022349) do
     t.boolean "win"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "demerit_logs", force: :cascade do |t|
+    t.bigint "demerit_id"
+    t.bigint "daylog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["daylog_id"], name: "index_demerit_logs_on_daylog_id"
+    t.index ["demerit_id"], name: "index_demerit_logs_on_demerit_id"
   end
 
   create_table "demerits", force: :cascade do |t|
@@ -43,6 +52,7 @@ ActiveRecord::Schema.define(version: 20171215022349) do
 
   create_table "metric_logs", force: :cascade do |t|
     t.bigint "metric_id"
+    t.string "log_type"
     t.integer "log_id"
     t.integer "amount"
     t.datetime "created_at", null: false
@@ -77,6 +87,8 @@ ActiveRecord::Schema.define(version: 20171215022349) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "demerit_logs", "daylogs"
+  add_foreign_key "demerit_logs", "demerits"
   add_foreign_key "incentives", "metrics"
   add_foreign_key "metric_logs", "metrics"
   add_foreign_key "rules", "demerits"
