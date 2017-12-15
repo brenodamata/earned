@@ -1,6 +1,7 @@
 class Metric < ApplicationRecord
   has_many :metric_logs
   has_many :incentives
+  has_many :goal_triggers
   has_many :entities, as: :entity
 
 

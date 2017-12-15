@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @goal_trigger.frequency %>
+</p>
+
+<p>
+  <strong>Metric:</strong>
+  <%= @goal_trigger.metric %>
+</p>
+
+<p>
+  <strong>Trigger level:</strong>
+  <%= @goal_trigger.trigger_level %>
+</p>
+
+<p>
+  <strong>Spoils:</strong>
+  <%= @goal_trigger.spoils %>
+</p>
+
+<p>
+  <strong>Fee:</strong>
+  <%= @goal_trigger.fee %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @goal_trigger.message %>
+</p>
+
+<%= link_to 'Edit', edit_goal_trigger_path(@goal_trigger) %> |
+<%= link_to 'Back', goal_triggers_path %>

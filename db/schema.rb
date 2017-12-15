@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215035458) do
+ActiveRecord::Schema.define(version: 20171215062812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 20171215035458) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "goal_triggers", force: :cascade do |t|
+    t.string "frequency"
+    t.bigint "metric_id"
+    t.integer "trigger_level"
+    t.integer "spoils"
+    t.integer "fee"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["metric_id"], name: "index_goal_triggers_on_metric_id"
+  end
+
   create_table "incentives", force: :cascade do |t|
     t.bigint "metric_id"
     t.boolean "merit"
@@ -48,6 +60,23 @@ ActiveRecord::Schema.define(version: 20171215035458) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["metric_id"], name: "index_incentives_on_metric_id"
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string "entity_type"
+    t.integer "entity_id"
+    t.integer "low_amount"
+    t.string "low_name"
+    t.integer "medium_low_amount"
+    t.string "medium_low_name"
+    t.integer "medium_amount"
+    t.string "medium_name"
+    t.integer "medium_high_amount"
+    t.string "medium_high_name"
+    t.integer "high_amount"
+    t.string "high_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "metric_logs", force: :cascade do |t|
@@ -89,6 +118,7 @@ ActiveRecord::Schema.define(version: 20171215035458) do
 
   add_foreign_key "demerit_logs", "daylogs"
   add_foreign_key "demerit_logs", "demerits"
+  add_foreign_key "goal_triggers", "metrics"
   add_foreign_key "incentives", "metrics"
   add_foreign_key "metric_logs", "metrics"
   add_foreign_key "rules", "demerits"
