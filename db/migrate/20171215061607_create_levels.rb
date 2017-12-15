@@ -1,8 +1,7 @@
 class CreateLevels < ActiveRecord::Migration[5.1]
   def change
     create_table :levels do |t|
-      t.string :entity_type
-      t.integer :entity_id
+      t.references :metric, foreign_key: true
       t.integer :low_amount
       t.string :low_name
       t.integer :medium_low_amount

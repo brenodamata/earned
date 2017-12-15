@@ -2,8 +2,7 @@ class Metric < ApplicationRecord
   has_many :metric_logs
   has_many :incentives
   has_many :goal_triggers
-  has_many :entities, as: :entity
-
+  has_one :level
 
   validates :name, uniqueness: true
 
@@ -40,5 +39,47 @@ class Metric < ApplicationRecord
       total = incentive.merit ? total + incentive.coins : total - incentive.coins
     end
     total
+  end
+
+  def levels
+    return nil if level.nil?
+    {
+      1 => level[:low_amount],
+      2 => level[:medium_low_amount],
+      3 => level[:medium_amount],
+      4 => level[:medium_high_amount],
+      5 => level[:high_amount]
+    }
+  end
+
+  def levels_names
+    {
+      level[:low_name] => level[:low_amount],
+      level[:medium_low_name] => level[:medium_low_amount],
+      level[:medium_name] => level[:medium_amount],
+      level[:medium_high_name] => level[:medium_high_amount],
+      level[:high_name] => level[:high_amount]
+    }
+  end
+
+  # expects:
+  #  1: {name: 'name', amount: amount]
+  # default names: 'terrible', 'poor', 'ok', 'good', 'great'
+  # {1=>{amount: 2000}, 2=>{amount: 4000}, 3=>{amount: 9000}, 4=>{amount: 9000}, 5=>{amount: 12000}}
+  def create_levels params
+    opts = {
+      metric_id: self.id,
+      low_name: (params[1][:name].nil? ? 'terrible' : params[1][:name]),
+      low_amount: params[1][:amount],
+      medium_low_name: (params[2][:name].nil? ? 'poor' : params[2][:name]),
+      medium_low_amount: params[2][:amount],
+      medium_name: (params[3][:name].nil? ? 'ok' : params[3][:name]),
+      medium_amount: params[3][:amount],
+      medium_high_name: (params[4][:name].nil? ? 'good' : params[4][:name]),
+      medium_high_amount: params[4][:amount],
+      high_name: (params[5][:name].nil? ? 'great' : params[5][:name]),
+      high_amount: params[5][:amount]
+    }
+    Level.create(opts)
   end
 end

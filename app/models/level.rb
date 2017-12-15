@@ -1,5 +1,5 @@
 class Level < ApplicationRecord
-  belongs_to :entity, polymorphic: true
+  has_one :metric
 
   def level_by_code code
     case code
