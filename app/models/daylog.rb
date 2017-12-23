@@ -1,5 +1,20 @@
 class Daylog < ApplicationRecord
   has_many :demerit_logs
+  DATE_FORMAT = '%Y%m%d'
+
+  def self.to_date_code date
+    date = date.to_date unless date.is_a? Date
+    date.strftime(DATE_FORMAT).to_i
+  end
+
+  def self.from_date_code date_code
+    begin
+      Date.strptime(date_code.to_s, DATE_FORMAT)
+    rescue Exception=>e
+      logger.warn "Invalid date #{date_code}"
+      raise e
+    end
+  end
 
   def logs
     MetricLog.where(log_type: 'daily', log_id: self.id)

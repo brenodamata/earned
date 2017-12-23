@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20171215035458) do
 
   create_table "metric_logs", force: :cascade do |t|
     t.bigint "metric_id"
+    t.integer "date_code"
     t.string "log_type"
-    t.integer "log_id"
-    t.integer "amount"
+    t.decimal "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["metric_id"], name: "index_metric_logs_on_metric_id"

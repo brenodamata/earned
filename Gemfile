@@ -18,6 +18,11 @@ gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'awesome_print'
 
+gem 'rescuetime'
+gem 'figaro'
+gem 'pry'
+gem 'pry-byebug'
+
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do

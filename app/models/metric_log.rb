@@ -9,4 +9,8 @@ class MetricLog < ApplicationRecord
       Weeklog.find(log_id)
     end
   end
+
+  def amount_f
+    amount.to_f
+  end
 end
