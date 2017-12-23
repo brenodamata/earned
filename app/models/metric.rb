@@ -1,6 +1,7 @@
 class Metric < ApplicationRecord
   has_many :metric_logs
   has_many :incentives
+  has_many :data_pulls
 
   validates :name, uniqueness: true
 
