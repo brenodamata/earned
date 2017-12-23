@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :goal_triggers
   resources :weeklogs
   resources :incentives
   resources :daylogs
