@@ -22,6 +22,9 @@ gem 'rescuetime'
 gem 'figaro'
 gem 'pry'
 gem 'pry-byebug'
+gem 'json'
+
+gem "irbtools-more", require: 'irbtools/binding'
 
 # gem 'capistrano-rails', group: :development
 
